@@ -3,8 +3,8 @@ const userList = require('../model/userModel')
 
 const addUser = async(req,res,next)=>{
     // console.log(req.body)
-    const {id,firstName,lastName,email} = req.body
-    // const {id,firstName,lastName,email} = req.body.detail
+    // const {id,firstName,lastName,email} = req.body
+    const {id,firstName,lastName,email} = req.body.detail
     let fuser
     try{
         fuser =await userList.findOne({email:email})
