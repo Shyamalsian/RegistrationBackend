@@ -12,7 +12,7 @@ require('./model/db')
 app.options('*', cors()); 
 app.use(express.json())
 
-app.use('/app',User)
+app.use('/registrationFrontend',User)
 
 app.listen(port,()=>{
     console.log("Listining on port "+port)
