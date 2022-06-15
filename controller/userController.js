@@ -3,7 +3,8 @@ const userList = require('../model/userModel')
 
 const addUser = async(req,res,next)=>{
     // console.log(req.body)
-    const {id,firstName,lastName,email} = req.body.detail
+    const {id,firstName,lastName,email} = req.body
+    // const {id,firstName,lastName,email} = req.body.detail
     let fuser
     try{
         fuser =await userList.findOne({email:email})
@@ -26,6 +27,8 @@ const addUser = async(req,res,next)=>{
         })
         try{
         await newUser.save();
+        return res.status(200).json("User Added")
+        
         }
         catch(err)
         {
@@ -33,7 +36,7 @@ const addUser = async(req,res,next)=>{
             console.log(err)
         }
     }
-    res.status(200).json("User Added")
+    
 }
 
 const getUser = async(req,res,next) => {
